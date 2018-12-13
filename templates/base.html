@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {% block title_bl %}GKJ Jakarta{% endblock %}
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="GKJ Jakarta">
+    <meta name="application-name" content="GKJ Jakarta">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#7f7f7f">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/elem.css' %}" />
+    <script src="{% static 'js/main.js' %"></script>
+    <!-- Additional headers -->
+    {% block header_bl %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="{% static 'favicon/favicon-32x32.png' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% if request.session.current_page == 'home' %}active{% endif %}">
+                    <a class="nav-link" href="/">Home</span></a>
+                </li>
+                <li class="nav-item {% if request.session.current_page == 'about' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'homepage:about' %}">About</a>
+                </li>
+                <!--li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li-->
+            </ul>
+        </div>
+    </nav>
+    {% block body_bl %}{% endblock %}
+    <section id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4741420095243!2d106.88767906063536!3d-6.201008780399853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f49409723ddb%3A0x992ea35ab145ddc5!2sGereja+Kristen+Jawa+Jakarta!5e0!3m2!1sen!2sid!4v1544694416650" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 py-3">
+                    <h5 class="text-centered letter-spaced">JADWAL IBADAH</h5>
+                    <table class="table table-bordered table-dark table-sm">
+                        <tbody>
+                            <tr>
+                                <td>Kebaktian anak / pra remaja</td>
+                                <td>Pukul 06:30 WIB (Indonesia)</td>
+                            </tr>
+                            <tr>
+                                <td>Kebaktian remaja</td>
+                                <td>Pukul 06:45 WIB (Indonesia)</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">Kebaktian umum</td>
+                                <td>Pukul 06:45 WIB (Indonesia)</td>
+                            </tr>
+                            <tr>
+                                <td>Pukul 09:00 WIB (Jawa)</td>
+                            </tr>
+                            <tr>
+                                <td>Pukul 09:00 WIB (Indonesia)</td>
+                            </tr>
+                            <tr>
+                                <td>Pukul 17:00 WIB (Indonesia)</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Pertemuan lansia</td>
+                                <td>Pukul 11:00 WIB (Indonesia)<br>(setiap minggu ketiga)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 class="text-centered letter-spaced">KONTAK</h5>
+                    <dl>
+                        <dt>Alamat</dt>
+                        <dd>Jalan Balai Pustaka Timur nomor 1, Rawamangun, DKI Jakarta 13220</dd>
+                        <dt>Telepon/Fax</dt>
+                        <dd>021-4893435/4752162</dd>
+                        <dt>Email</dt>
+                        <dd><a href="mailto:gkjjkt@bitnet.net.id">gkjjkt@bitnet.net.id</a></dd>
+                        <dt>Nomor Rekening</dt>
+                        <dd>006.00.8800042.1 (Bank Mandiri Cabang Jakarta)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div id="footer-copyright">
+            <img src="{% static 'img/logo-gkj.png' %}">
+            <p>&copy; 2018 Gereja Kristen Jawa Jakarta</p>
+            <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+            <p>Built using <a href="https://www.djangoproject.com/">Django</a>. Uses <a href="https://getbootstrap.com/">Bootstrap</a></p>
+            <p>source code by GP</p>
+        </div>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {% block add_body_bl %}{% endblock %}
+</body>
+</html>
