@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %}{{ art.title }} - GKJ Jakarta{% endblock %}
+
+{% block header_bl %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css' %}">
+{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <article>
+            <header class="my-3">
+                <h1>{{ art.title }}</h1>
+                Ditulis pada 
+                <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y H:i" }} </time>
+                oleh {{ art.author }}
+            </header>
+            {{ art.content|safe }}
+        </article>
+        {% if request.user.is_authenticated %}
+        <section id="admin">
+            <a href="{% url 'blog:edit' year=art.date_created.year slug=art.slug %}" class="btn btn-sm btn-info" role="button">Edit artikel</a>
+        </section>
+        {% endif %}
+        <section class="mb-3" id="comment">
+            {% if art.comment_allowed and not debug %}
+            <div id="disqus_thread"></div>
+            {% else %}
+            Komentar tidak aktif untuk artikel ini.
+            {% endif %}
+        </section>
+    </div>
+
+    {% block add_body_bl %}
+    <script>
+        /* Remove the damn style from summernote */
+        $(document).ready(function(){
+            $("img").removeAttr("style");
+        });
+    </script>
+    <!-- Disqus comment -->
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        var disqus_config = function () {
+            this.page.url = '{{ request.get_host }}{{ art.get_absolute_url }}';
+            this.page.identifier = '{{ art.id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://gkj-jakarta.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>
+        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    {% endblock %}
+{% endblock %}

@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title_bl %}About - GKJ Jakarta{% endblock %}
+
 {% block body_bl %}
-<div class="jumbotron jumbotron-fluid text-centered" id="jumbotron-about" style="background-image: url('{% static 'img/altar-closeup.png' %}');">
-    <h1 class="display-5 letter-spaced">VISI</h1>
-    <p class="lead">Menjadi Gereja yang berkualitas</p>
-    <h1 class="display-5 letter-spaced">MISI</h1>
-    <p>Dalam kebersamaan --berdasarkan anugerah-- mewujudkan keluarga dewasa yang terbuka, yang melakukan perubahan berlandaskan iman, keteladanan, dan kepedulian yang memberdayakan.</p>
+<div class="container-fluid mb-5" id="about-main">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="jumbotron jumbotron-fluid" id="jumbotron-about" style="background-image: url('{% static 'img/altar-closeup.png' %}');">
+            </div>
+        </div>
+        <div class="col-md-4 py-2 text-centered align-self-center">
+            <h3 class="display-6 letter-spaced">VISI</h3>
+            <p class="lead">Menjadi Gereja yang berkualitas</p>
+            <h3 class="letter-spaced">MISI</h3>
+            <p>Dalam kebersamaan --berdasarkan anugerah-- mewujudkan keluarga dewasa yang terbuka, yang melakukan perubahan berlandaskan iman, keteladanan, dan kepedulian yang memberdayakan.</p>
+        </div>
+    </div>
 </div>
 <div class="container">
-    <h3 class="text-centered letter-spaced">Sejarah</h3>
-    <p>Menjadi Gereja yang berkualitas</p>
+    <h3 class="text-centered letter-spaced">SEJARAH</h3>
+    <p>Under revision</p>
 </div>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Login - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <form method="POST" action="{% url 'homepage:login' %}" id="form-login">{% csrf_token %}
+        <h3>Login administrator</h3>
+        {% if messages %}
+            {% for message in messages %}
+            <p class="{{ message.level_tag }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <div class="form-group">
+            <label for="username_id">Username</label>
+            <input name="username" type="text" class="form-control" id="username_id" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="password_id">Password</label>
+            <input name="password" type="password" class="form-control" id="password_id" required>
+        </div>
+        {% if next_page %}
+        <input name="next-page" type="hidden" value="{{ next_page }}">
+        {% endif %}
+        <button type="submit" class="btn btn-block btn-primary">Login</button>
+    </form>
+{% endblock %}

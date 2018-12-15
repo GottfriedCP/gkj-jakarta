@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Daftar Artikel - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <div class="container py-3">
+        <h3 class="mb-3">Daftar artikel</h3>
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <caption><small>
+                    Kuning menunjukkan artikel yang tidak dirilis.</small>
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Ringkasan</th>
+                        <th scope="col">Tindakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for art in arts %}
+                    <tr {% if not art.published %}class="bg-warning"{% endif %}>
+                        <td><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></td>
+                        <td>{{ art.summary|truncatechars:100 }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-secondary" role="button" href="{{ art.get_edit_url }}">Edit</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    Belum ada artikel...
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if arts %}
+        <!-- Pagination -->
+        <nav class="my-3">
+            <ul class="pagination">
+                {% if arts.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ arts.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                
+                <li class="page-item disabled">
+                    <span class="page-link">{{ arts.number }} of {{ arts.paginator.num_pages }}</span>
+                </li>
+                {% if arts.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ arts.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ arts.paginator.num_pages }}">Last</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+{% endblock %}

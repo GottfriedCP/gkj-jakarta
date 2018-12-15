@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Blog - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <div class="container py-3">
+        <h1 class="mb-3">Artikel terbaru</h1>
+        <ul class="articles">
+        {% for art in arts %}
+            <li class="article mb-3">
+                <h2><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h2>
+                {{ art.summary }}
+            </li>
+        {% empty %}
+            <li class="article">Belum ada artikel...</li>
+        {% endfor %}
+        </ul>
+        <!-- Pagination -->
+        {% if arts %}
+        <nav class="my-3">
+            <ul class="pagination">
+                {% if arts.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ arts.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                
+                <li class="page-item disabled">
+                    <span class="page-link">{{ arts.number }} of {{ arts.paginator.num_pages }}</span>
+                </li>
+                {% if arts.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ arts.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ arts.paginator.num_pages }}">Last</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+{% endblock %}

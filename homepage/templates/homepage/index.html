@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block body_bl %}
-<div class="jumbotron jumbotron-fluid" id="jumbotron-home" style="background-image: url('{% static 'img/gkj-front.png' %}');">
-    <div class="container">
-        <h1 class="display-4">Gereja Kristen Jawa Jakarta</h1>
-        <p class="lead">Anggota Persekutuan Gereja-gereja di Indonesia</p>
-    </div>
+<div class="jumbotron jumbotron-fluid" id="jumbotron-home" style="background-image: url('{% static 'img/gkj-front-far.png' %}');"></div>
+<div class="container-fluid text-centered" id="div-header">
+    <h1 class="display-5">Gereja Kristen Jawa Jakarta</h1>
+    <p class="lead">Anggota Persekutuan Gereja-gereja di Indonesia</p>
 </div>
 <div class="container">
     <h3 class="text-centered letter-spaced">KOMUNITAS</h3>
@@ -14,7 +13,16 @@
 </div>
 <div class="container">
     <h3 class="text-centered letter-spaced">ARTIKEL TERBARU</h3>
-    <p>Under revision</p>
+    <ul class="articles">
+        {% for art in arts %}
+        <li class="article mb-3">
+            <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
+            <div>{{ art.summary }}</div>
+        </li>
+        {% empty %}
+        <li class="article">Belum ada artikel terbaru...</li>
+        {% endfor %}
+    </ul>
 </div>
 <div class="container">
     <h3 class="text-centered letter-spaced">RENUNGAN</h3>

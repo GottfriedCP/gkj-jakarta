@@ -46,21 +46,39 @@
                 <li class="nav-item {% if request.session.current_page == 'home' %}active{% endif %}">
                     <a class="nav-link" href="/">Home</span></a>
                 </li>
+                <li class="nav-item {% if request.session.current_page == 'blog' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
+                </li>
                 <li class="nav-item {% if request.session.current_page == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'homepage:about' %}">About</a>
                 </li>
-                <!--li class="nav-item dropdown">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Unggah warta gereja</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{% url 'blog:create' %}">Tulis artikel blog</a>
+                        <a class="dropdown-item" href="#">Tulis bacaan Alkitab</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'blog:list' %}">Semua artikel blog</a>
                     </div>
-                </li-->
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="nav justify-content-end">
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary btn-sm" role="button" href="{% url 'homepage:login' %}">Login</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="btn btn-outline-primary btn-sm" role="button" href="{% url 'homepage:logout' %}">Logout</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -110,8 +128,6 @@
                         <dd>021-4893435/4752162</dd>
                         <dt>Email</dt>
                         <dd><a href="mailto:gkjjkt@bitnet.net.id">gkjjkt@bitnet.net.id</a></dd>
-                        <dt>Nomor Rekening</dt>
-                        <dd>006.00.8800042.1 (Bank Mandiri Cabang Jakarta)</dd>
                     </dl>
                 </div>
             </div>
@@ -129,6 +145,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Disqus -->
+    <script id="dsq-count-scr" src="//gkj-jakarta.disqus.com/count.js" async></script>
     {% block add_body_bl %}{% endblock %}
 </body>
 </html>

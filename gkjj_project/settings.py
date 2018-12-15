@@ -28,6 +28,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+LOGIN_URL = 'homepage:login'
 
 # Application definition
 
@@ -38,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_summernote',
     'homepage',
+    'blog',
+    'warta',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +133,11 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
 MEDIA_URL = '/media/'
+
+SUMMERNOTE_THEME = 'bs4'
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'height': '640',
+    }
+}

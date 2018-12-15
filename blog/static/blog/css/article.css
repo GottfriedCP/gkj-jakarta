@@ -1,0 +1,14 @@
+article img {
+    width: 80vw;
+    height: auto;
+}
+
+article header {
+    font-size: .9rem;
+}
+
+section#admin {
+    border: .1rem grey dotted;
+    padding: .5rem;
+    margin-bottom: 1rem;
+}
