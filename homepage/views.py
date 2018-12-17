@@ -3,13 +3,23 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from blog.models import Article
+import requests
 
 # Create your views here.
 def home(request):
     request.session['current_page'] = 'home'
+    # Five latest blog articles
     arts5 = Article.objects.filter(published=True)[:5]
+    # Our daily bread
+    uri = 'http://alkitab.sabda.org/api/vod.php?format=jsonp'
+    try:
+        bread = requests.get(uri).json()['html']
+    except:
+        bread = False
+        print('Cannot get our daily bread.')
     return render(request, 'homepage/index.html', {
         'arts': arts5,
+        'bread': bread,
     })
 
 def about(request):

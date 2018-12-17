@@ -21,11 +21,12 @@ form#form-login p.error {
     list-style-type: none;
 }
 
+/* Page header and jumbotrons */
 div.jumbotron#jumbotron-home {
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 640px;
+    height: 512px;
     max-height: 90vh;
     margin-bottom: .7rem;
 }
@@ -39,13 +40,37 @@ div.jumbotron#jumbotron-about {
     max-height: 90vh;
 }
 
-div#about-main {
+div#home-main, div#about-main {
     background-color: #343a40;
     color: #9e9e9e;
 }
 
-div#div-header {
+h1#main-h1 {
+    font-family: 'Dosis', sans-serif;
+}
+
+section.main-section {
     margin-bottom: 3rem;
+}
+
+section.secondary-section {
+    margin: 0 auto;
+    padding: 1.5rem 10vw;
+}
+
+section#bread {
+    background-color: #2997ab;
+    color: #eeeeee;
+}
+
+section#bread blockquote p {
+    font-family: 'Charm', cursive;
+    font-size: 1.5rem;
+}
+
+section#bread footer {
+    display: block;
+    font-size: 80%;
 }
 
 form#form-create-article {
@@ -80,16 +105,16 @@ ul.articles li.article {
     list-style-type: none;
 }
 
-section#footer {
+footer#base-footer {
     background-color: black;
     color: #9e9e9e;
 }
 
-section#footer a {
+footer#base-footer a {
     color: #9e9e9e;
 }
 
-section#footer iframe {
+footer#base-footer iframe {
     border: 0;
     width: 100%;
     height: 480px;
@@ -97,19 +122,19 @@ section#footer iframe {
     padding: 1rem;
 }
 
-section#footer table {
+footer#base-footer table {
     color: #9e9e9e;
     margin-bottom: 1.5rem;
 }
 
-section#footer div#footer-copyright {
+footer#base-footer div#footer-copyright {
     background-color: #1b1b1b;
     font-size: .8rem;
     padding: 3vh;
     text-align: center;
 }
 
-section#footer div#footer-copyright img {
+footer#base-footer div#footer-copyright img {
     margin: .8rem;
     width: 96px;
     height: auto;

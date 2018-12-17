@@ -44,13 +44,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% if request.session.current_page == 'home' %}active{% endif %}">
-                    <a class="nav-link" href="/">Home</span></a>
+                    <a class="nav-link" href="/">Beranda</span></a>
                 </li>
                 <li class="nav-item {% if request.session.current_page == 'blog' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
                 </li>
                 <li class="nav-item {% if request.session.current_page == 'about' %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'homepage:about' %}">About</a>
+                    <a class="nav-link" href="{% url 'homepage:about' %}">Profil</a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item dropdown">
@@ -83,7 +83,7 @@
         </div>
     </nav>
     {% block body_bl %}{% endblock %}
-    <section id="footer">
+    <footer id="base-footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
@@ -135,11 +135,11 @@
         <div id="footer-copyright">
             <img src="{% static 'img/logo-gkj.png' %}">
             <p>&copy; 2018 Gereja Kristen Jawa Jakarta</p>
-            <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+            <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
             <p>Built using <a href="https://www.djangoproject.com/" target="_blank">Django</a>. Uses <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
             <p><a href="https://github.com/GottfriedCP/gkj-jakarta" target="_blank">source code</a> by GP</p>
         </div>
-    </section>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

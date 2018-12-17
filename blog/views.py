@@ -19,7 +19,7 @@ def index(request):
 
 def article(request, year, slug):
     request.session['current_page'] = 'blog'
-    art = get_object_or_404(Article, date_created__year=year, slug=slug)
+    art = get_object_or_404(Article, date_created__year=year, slug=slug, published=True)
     return render(request, 'blog/article.html', {
         'art': art,
         'debug': settings.DEBUG,

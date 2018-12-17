@@ -20,7 +20,7 @@
                 <tbody>
                     {% for art in arts %}
                     <tr {% if not art.published %}class="bg-warning"{% endif %}>
-                        <td><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></td>
+                        <td><a href="{% if art.published %}{{ art.get_absolute_url }}{% else %}#{% endif %}">{{ art.title }}</a></td>
                         <td>{{ art.summary|truncatechars:100 }}</td>
                         <td>
                             <a class="btn btn-sm btn-secondary" role="button" href="{{ art.get_edit_url }}">Edit</a>

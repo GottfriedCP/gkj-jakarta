@@ -1,31 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block header_bl %}
+    <link href="https://fonts.googleapis.com/css?family=Charm|Dosis" rel="stylesheet">
+{% endblock %}
+
 {% block body_bl %}
-<div class="jumbotron jumbotron-fluid" id="jumbotron-home" style="background-image: url('{% static 'img/gkj-front-far.png' %}');"></div>
-<div class="container-fluid text-centered" id="div-header">
-    <h1 class="display-5">Gereja Kristen Jawa Jakarta</h1>
-    <p class="lead">Anggota Persekutuan Gereja-gereja di Indonesia</p>
+<div class="container-fluid mb-5" id="home-main">
+    <div class="row">
+        <div class="col-md-4 py-2 text-centered align-self-center">
+            <h1 class="display-5" id="main-h1">Gereja Kristen Jawa Jakarta</h1>
+            <p class="lead">Anggota Persekutuan Gereja-gereja di Indonesia</p>
+        </div>
+        <div class="col-md-8">
+            <div class="jumbotron jumbotron-fluid" id="jumbotron-home" style="background-image: url('{% static 'img/gkj-front-far.png' %}');">
+            </div>
+        </div>
+    </div>
 </div>
-<div class="container">
-    <h3 class="text-centered letter-spaced">KOMUNITAS</h3>
-    <p>Under revision</p>
-</div>
-<div class="container">
-    <h3 class="text-centered letter-spaced">ARTIKEL TERBARU</h3>
-    <ul class="articles">
-        {% for art in arts %}
-        <li class="article mb-3">
-            <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
-            <div>{{ art.summary }}</div>
-        </li>
-        {% empty %}
-        <li class="article">Belum ada artikel terbaru...</li>
-        {% endfor %}
-    </ul>
-</div>
-<div class="container">
-    <h3 class="text-centered letter-spaced">RENUNGAN</h3>
-    <p>Under revision</p>
-</div>
+<section id="komunitas" class="main-section">
+    <div class="container">
+        <h3 class="text-centered letter-spaced mb-3">KOMUNITAS</h3>
+        <p>Under revision</p>
+    </div>
+</section>
+<section id="artikel-terbaru" class="main-section">
+    <div class="container">
+        <h3 class="text-centered letter-spaced mb-3">ARTIKEL TERBARU</h3>
+        <ul class="articles">
+            {% for art in arts %}
+            <li class="article mb-3">
+                <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
+                <div>{{ art.summary }}</div>
+            </li>
+            {% empty %}
+            <li class="article">Belum ada artikel terbaru...</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+<!--section id="renungan" class="main-section">
+    <div class="container">
+        <h3 class="text-centered letter-spaced">RENUNGAN</h3>
+        <p>Under revision</p>
+    </div>
+</section-->
+{% if bread %}
+<section class="secondary-section" id="bread">
+    <blockquote class="blockquote">
+        <p class="mb-0">{{ bread.text }}</p>
+        <footer>&mdash; <cite title="{{ bread.passage }}">{{ bread.passage }}</cite></footer>
+    </blockquote>
+</section>
+{% endif %}
 {% endblock %}
