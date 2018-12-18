@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %}Unggah Warta - GKJ Jakarta{% endblock %}
+
+{% block header_bl %}
+    <link rel="stylesheet" href="{% static 'warta/css/warta.css' %}">
+{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <form id="form-create-warta" method="POST" action="{% url 'warta:create' %}" enctype="multipart/form-data">{% csrf_token %}
+            <h3>Unggah warta baru</h3>
+            {{ form }}
+            <button type="submit" class="btn btn-block btn-primary">Unggah</button>
+        </form>
+    </div>
+{% endblock %}

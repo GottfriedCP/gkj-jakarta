@@ -59,12 +59,13 @@
                         Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Unggah warta gereja</a>
+                        <a class="dropdown-item" href="{% url 'warta:create' %}">Unggah Warta Gereja</a>
+                        <a class="dropdown-item" href="{% url 'warta:list' %}">Lihat semua warta</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'blog:create' %}">Tulis artikel blog</a>
-                        <a class="dropdown-item" href="#">Tulis bacaan Alkitab</a>
+                        <a class="dropdown-item" href="{% url 'blog:list' %}">Lihat semua artikel</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'blog:list' %}">Semua artikel blog</a>
+                        <a class="dropdown-item" href="#">Tulis bacaan Alkitab</a>
                     </div>
                 </li>
                 {% endif %}

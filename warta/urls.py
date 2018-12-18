@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'warta'
 urlpatterns = [
-    #path('', views.home, name='home'),
+    path('list/', views.index, name='list'),
+    path('create/', views.create, name='create'),
 ]

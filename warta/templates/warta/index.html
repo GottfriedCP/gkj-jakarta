@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load qr_code %}
+
+{% block title_bl %}Semua Warta - GKJ Jakarta{% endblock %}
+
+{% block header_bl %}
+    <link rel="stylesheet" href="{% static 'warta/css/warta.css' %}">
+{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <h1 class="mb-3">Semua warta</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% qr_url_from_text latest_warta_url %}" id="qr-warta" alt="Link Warta Gereja Terbaru">
+            </div>
+            <div class="col-md-6">
+                <ol>
+                    {% for warta in wartas %}
+                    <li>
+                        <a href="{{ warta.warta.url }}">{{ warta }}</a>
+                    </li>
+                    {% empty %}
+                    <li>Belum ada warta tersedia...</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+form#form-create-warta {
+    margin: 1.5rem auto;
+    width: 480px;
+    max-width: 60vw;
+}
+
+form#form-create-warta label {
+    display: block;
+    margin: 1.7rem auto 0;
+}
+
+form#form-create-warta input {
+    margin: 2rem auto;
+}
+
+img#qr-warta {
+    display: block;
+    margin: 0 auto;
+}
