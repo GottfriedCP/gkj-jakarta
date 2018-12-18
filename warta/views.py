@@ -7,7 +7,11 @@ import datetime, time, os
 
 def index(request):
     wartas = Warta.objects.all()
-    latest_warta_url = 'http://' + request.get_host() + wartas[0].warta.url
+    latest_warta_url = False
+    try:
+        latest_warta_url = 'http://' + request.get_host() + wartas[0].warta.url
+    except:
+        print('Cannot get warta url.')
 
     return render(request, 'warta/index.html', {
         'wartas': wartas,

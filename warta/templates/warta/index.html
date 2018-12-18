@@ -13,7 +13,11 @@
         <h1 class="mb-3">Semua warta</h1>
         <div class="row">
             <div class="col-md-6">
+                {% if latest_warta_url %}
                 <img src="{% qr_url_from_text latest_warta_url %}" id="qr-warta" alt="Link Warta Gereja Terbaru">
+                {% else %}
+                QR code tidak tersedia.
+                {% endif %}
             </div>
             <div class="col-md-6">
                 <ol>
