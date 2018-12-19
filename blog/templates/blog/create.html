@@ -5,7 +5,7 @@
 {% block body_bl %}
     <div class="container">
         <form method="POST" action="{% url 'blog:create' %}" id="form-create-article">{% csrf_token %}
-            <h3>Tulis artikel baru</h3>
+            <h1>Tulis artikel baru</h1>
             {{ form }}
             <button type="submit" class="btn btn-block btn-primary my-3">Submit</button>
         </form>

@@ -9,17 +9,19 @@
 {% endblock %}
 
 {% block body_bl %}
-    <div class="container">
-        <h1 class="mb-3">Semua warta</h1>
+    <div class="container py-3">
+        <h1 class="mb-3">Warta Gereja</h1>
         <div class="row">
             <div class="col-md-6">
                 {% if latest_warta_url %}
-                <img src="{% qr_url_from_text latest_warta_url %}" id="qr-warta" alt="Link Warta Gereja Terbaru">
+                <img src="{% qr_url_from_text latest_warta_url image_format='png' %}" id="qr-warta" alt="Link Warta Gereja Terbaru" title="Scan untuk mengunduh WG terbaru">
                 {% else %}
                 QR code tidak tersedia.
                 {% endif %}
             </div>
             <div class="col-md-6">
+                <h3>Semua Warta Gereja</h3>
+                <p><small>Terurut dari terbaru hingga satu tahun lalu.</small></p>
                 <ol>
                     {% for warta in wartas %}
                     <li>

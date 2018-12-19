@@ -1,7 +1,7 @@
 form#form-create-warta {
     margin: 1.5rem auto;
     width: 480px;
-    max-width: 60vw;
+    max-width: 80vw;
 }
 
 form#form-create-warta label {
@@ -16,4 +16,7 @@ form#form-create-warta input {
 img#qr-warta {
     display: block;
     margin: 0 auto;
+    width: 320px;
+    max-width: 90vw;
+    height: auto;
 }

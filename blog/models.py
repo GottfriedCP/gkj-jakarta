@@ -10,7 +10,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=100, editable=False)
     published = models.BooleanField('Rilis artikel?', default=True)
     comment_allowed = models.BooleanField('Izinkan komentar pembaca?', default=True)
-    summary = models.TextField('Ringkasan (opsional):', max_length=1000, blank=True, null=True)
+    summary = models.TextField('Ringkasan (opsional, sebaiknya diisi):', max_length=1000, blank=True, null=True)
     content = models.TextField('Isi artikel:')
     date_created = models.DateTimeField(auto_now_add=True, editable=False)
     date_modified = models.DateTimeField(auto_now=True, editable=False)
