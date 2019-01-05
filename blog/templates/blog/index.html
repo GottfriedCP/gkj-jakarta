@@ -5,6 +5,9 @@
 {% block body_bl %}
     <div class="container py-3">
         <h1 class="mb-3">Artikel terbaru</h1>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'blog:create' %}" class="btn btn-primary btn-sm my-3" role="button">Tulis artikel baru</a>
+        {% endif %}
         <ul class="articles">
         {% for art in arts %}
             <li class="article mb-3">
