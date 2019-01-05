@@ -53,6 +53,12 @@ section.main-section {
     margin-bottom: 3rem;
 }
 
+section.main-section iframe#embed-khotbah {
+    width: 600px;
+    max-width: 90vw;;
+    height: 315px;
+}
+
 section.secondary-section {
     margin: 0 auto;
     padding: 1.5rem 10vw;
