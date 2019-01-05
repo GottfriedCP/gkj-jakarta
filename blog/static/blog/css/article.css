@@ -1,5 +1,6 @@
 article img {
-    width: 80vw;
+    width: 640px;
+    max-width: 90vw;
     height: auto;
 }
 
