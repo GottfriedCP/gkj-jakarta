@@ -1,8 +1,9 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 class Warta(models.Model):
     date_uploaded = models.DateTimeField(auto_now_add=True, editable=False)
-    warta = models.FileField('File Warta (PDF)', upload_to='wg/%Y/%m/%d/', help_text='Mohon pastikan format PDF dan ukuran file seminimal mungkin.')
+    warta = models.FileField('File Warta (PDF)', upload_to='wg/%Y/%m/%d/', help_text='Mohon pastikan format file adalah PDF.', validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
 
     class Meta:
         ordering = ['-date_uploaded']

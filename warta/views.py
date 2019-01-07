@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .forms import WartaForm
 from .models import Warta
-import datetime, time, os
+import datetime, time, os, hashlib, uuid
 
 def index(request):
     wartas = Warta.objects.all()
@@ -20,13 +20,19 @@ def index(request):
 
 @login_required
 def create(request):
+    """Example of WG:\n
+    Filename: wg20181219[hash]/WG-2018-12-19.pdf\n
+    Shortname: WG-2018-12-19.pdf    
+    """
     form = WartaForm()
+    randuuid = str(uuid.uuid4())
+    randhash = hashlib.sha1(randuuid.encode('utf-8')).hexdigest()
     if request.method == 'POST':
         form = WartaForm(request.POST, request.FILES)
         if form.is_valid():
             warta = form.save()
             init_path = warta.warta.path
-            warta.warta.name = time.strftime('wg/%Y/%m/%d/wg-%Y-%m-%d.pdf')
+            warta.warta.name = time.strftime('wg/%Y/%m/%d/WG-%Y-%m-%d-{}.pdf'.format(randhash))
             new_path = settings.MEDIA_ROOT + warta.warta.name
             os.rename(init_path, new_path)
             print('New warta named {}'.format(warta.warta.path))
