@@ -24,7 +24,9 @@
                 <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y H:i" }} </time>
                 oleh {{ art.author }}
             </header>
-            {{ art.content|safe }}
+            <section class="bigger-font">
+                {{ art.content|safe }}
+            </section>
         </article>
         {% if request.user.is_authenticated %}
         <section id="admin">
@@ -35,7 +37,7 @@
             {% if art.comment_allowed and not debug %}
             <div id="disqus_thread"></div>
             {% else %}
-            Komentar tidak aktif untuk artikel ini.
+            <em>Komentar tidak aktif untuk artikel ini.</em>
             {% endif %}
         </section>
     </div>

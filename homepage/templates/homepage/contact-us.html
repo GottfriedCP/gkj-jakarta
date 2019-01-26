@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Hubungi kami - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <form method="POST" action="{% url 'homepage:contact_us' %}" id="form-login">{% csrf_token %}
+        {% if message_sent %}
+        <script>
+            alert('Pesan telah dikirim');
+        </script>
+        {% endif %}
+        <h1 class="letter-spaced mb-3">Hubungi kami</h1>
+        <small>
+            Silakan hubungi kami melalui alamat email tertera pada akhir laman atau melalui form berikut.
+        </small>
+        <div class="form-group">
+            <label for="name_id">Nama</label>
+            <input name="name" type="text" class="form-control" id="name_id" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="email_id">Email</label>
+            <input name="email" type="email" class="form-control" id="email_id" required>
+            <small id="emailHelp" class="form-text text-muted">Kami tidak akan membagikan nama dan email Anda.</small>
+        </div>
+        <div class="form-group">
+            <label for="message_id">Pesan</label>
+            <textarea name="message" class="form-control" id="message_id" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="security_question_id">Security question {{ security_question }}</label>
+            <input name="sender-answer" type="number" class="form-control" id="security_question_id" placeholder="{{ security_question }}" min="2" max="100" required>
+            <small id="securityHelp" class="form-text text-muted">Ini untuk mencegah spam.</small>
+        </div>
+        
+        <button type="submit" class="btn btn-block btn-primary">Kirim</button>
+    </form>
+{% endblock %}
+
+{% block contact_footer_bl %}
+{% include 'contact.html' %}
+{% endblock %}

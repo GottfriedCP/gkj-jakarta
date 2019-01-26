@@ -6,6 +6,14 @@
     text-align: center;
 }
 
+.uppercased {
+    text-transform: uppercase;
+}
+
 .black-bg {
     background-color: black;
+}
+
+.bigger-font {
+    font-size: 1.08rem;
 }

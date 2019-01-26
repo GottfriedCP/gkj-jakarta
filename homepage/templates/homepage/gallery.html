@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %}Galeri - GKJ Jakarta{% endblock %}
+
+{% block header_bl %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'homepage/css/gallery.css' %}" />
+{% endblock %}
+
+{% block body_bl %}
+<!-- Both include and thumbnail must match! -->
+<div class="container mb-4 pt-3" id="main-gallery">
+    <div id="main-img">
+        <!-- Full-width images with number text -->
+        {% include 'homepage/mainimg.html' %}
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <section id="malam-natal-2018">
+        <div class="mt-5 mb-4">
+            <h3 class="text-centered letter-spaced uppercased">Malam Natal 2018</h3>
+        </div>
+    
+        <!-- Thumbnail images -->
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img1.png' %}" style="width:100%"
+                    onclick="currentSlide(1)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img2.png' %}" style="width:100%"
+                    onclick="currentSlide(2)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img3.png' %}" style="width:100%"
+                    onclick="currentSlide(3)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img4.png' %}" style="width:100%"
+                    onclick="currentSlide(4)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img5.png' %}" style="width:100%"
+                    onclick="currentSlide(5)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/malamnatal2018/img6.png' %}" style="width:100%"
+                    onclick="currentSlide(6)" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="natal-2018">
+        <div class="mt-5 mb-4">
+            <h3 class="text-centered letter-spaced uppercased">Natal 2018</h3>
+        </div>
+    
+        <!-- Thumbnail images -->
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img7.png' %}" style="width:100%"
+                    onclick="currentSlide(7)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img8.png' %}" style="width:100%"
+                    onclick="currentSlide(8)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img9.png' %}" style="width:100%"
+                    onclick="currentSlide(9)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img10.png' %}" style="width:100%"
+                    onclick="currentSlide(10)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img11.png' %}" style="width:100%"
+                    onclick="currentSlide(11)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/natal2018/img12.png' %}" style="width:100%"
+                    onclick="currentSlide(12)" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="natal-2018">
+        <div class="mt-5 mb-4">
+            <h3 class="text-centered letter-spaced uppercased">Tahun Baru 2019</h3>
+        </div>
+    
+        <!-- Thumbnail images -->
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img13.png' %}" style="width:100%" onclick="currentSlide(13)"
+                    alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img14.png' %}" style="width:100%" onclick="currentSlide(14)"
+                    alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img15.png' %}" style="width:100%" onclick="currentSlide(15)"
+                    alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img16.png' %}" style="width:100%" onclick="currentSlide(16)"
+                    alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img17.png' %}" style="width:100%" onclick="currentSlide(17)"
+                    alt="">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'homepage/img/tahunbaru2019/img18.png' %}" style="width:100%" onclick="currentSlide(18)"
+                    alt="">
+            </div>
+        </div>
+    </section>
+</div>
+{% block add_body_bl %}
+    <script src="{% static 'homepage/js/gallery.js' %}"></script>
+{% endblock %}
+{% endblock %}
+
+{% block contact_footer_bl %}
+{% include 'contact.html' %}
+{% endblock %}

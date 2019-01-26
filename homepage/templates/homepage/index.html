@@ -26,26 +26,82 @@
         </div>
     </div>
 </div>
+<section id="komisi-dan-bebadan" class="main-section">
+    <div class="container">
+        <h3 class="text-centered letter-spaced uppercased mb-3">Bidang-bidang GKJ Jakarta</h3>
+        <p class="text-centered my-3"><em>Dalam menjalankan fungsi gereja yaitu pemeliharaan iman keselamatan dan pemberitaan Injil, GKJ Jakarta memiliki empat bidang utama</em></p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title text-centered uppercased">Bidang Pembinaan</h4>
+                        Bertugas mengajar dan membina warga jemaat terkait dengan tugas dan tanggung jawab gereja.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title text-centered uppercased">Bidang Peribadahan</h4>
+                        Memperkokoh relasi umat dengan Tuhan, mendasari kehidupan yang memberitakan Injil.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title text-centered uppercased">Bidang Kesaksian & Pelayanan</h4>
+                        Implementasi dari pembinaan dan iman di tengah-tengah kehidupan bergereja dan bermasyarakat.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-centered uppercased">Bidang Organisasi, Administrasi, dan Keuangan</h4>
+                        Suatu manajemen yang tertib dan efisien yang dibutuhkan tiga bidang sebelumnya dalam operasinya.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="komunitas" class="main-section">
     <div class="container">
-        <h3 class="text-centered letter-spaced mb-3">KOMUNITAS</h3>
-        <p>Under revision</p>
+        <h3 class="text-centered letter-spaced uppercased mb-3">Komunitas Jemaat</h3>
+        <section>
+            <h4 class="letter-spaced text-centered">Paduan Suara Pranagita</h4>
+            <div class="row">
+                <div class="col-sm-4 mb-3">
+                    <img src="{% static 'homepage/img/pranagita/img1.PNG' %}" style="width: 100%;">
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <img src="{% static 'homepage/img/pranagita/img2.PNG' %}" style="width: 100%;">
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <img src="{% static 'homepage/img/pranagita/img3.PNG' %}" style="width: 100%;">
+                </div>
+            </div>
+        </section>
     </div>
 </section>
 <section id="khotbah" class="main-section">
-    <h3 class="text-centered letter-spaced mb-3">KHOTBAH</h3>
+    <h3 class="text-centered letter-spaced uppercased mb-3">Khotbah Minggu</h3>
     <div class="text-centered black-bg">
         <iframe id="embed-khotbah" src="https://www.youtube.com/embed/videoseries?list=PLhA1J1i_KihOrxtmeLqZUc3Tcde7QE_ZJ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </section>
 <section id="artikel-terbaru" class="main-section">
     <div class="container">
-        <h3 class="text-centered letter-spaced mb-3">ARTIKEL TERBARU</h3>
+        <h3 class="text-centered letter-spaced uppercased mb-3">Artikel & Renungan</h3>
         <ul class="articles">
             {% for art in arts %}
-            <li class="article mb-3">
+            <li class="article mb-4">
                 <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
-                <div>{{ art.summary }}</div>
+                <div class="bigger-font">{{ art.summary }}</div>
+                <small>Ditulis pada <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y" }} </time></small>
             </li>
             {% empty %}
             <li class="article">Belum ada artikel terbaru...</li>
