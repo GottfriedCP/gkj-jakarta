@@ -9,6 +9,8 @@ function plusSlides(n) {
 // Thumbnail image controls
 function currentSlide(n) {
     showSlides(slideIndex = n);
+    var main_img = document.getElementById("main-img");
+    main_img.scrollIntoView();
 }
 
 function showSlides(n) {
@@ -26,5 +28,5 @@ function showSlides(n) {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-    captionText.innerHTML = dots[slideIndex - 1].alt;
+    //captionText.innerHTML = dots[slideIndex - 1].alt;
 }
