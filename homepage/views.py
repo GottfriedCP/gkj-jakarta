@@ -48,9 +48,9 @@ def contact_us(request):
         
         # Compose email
         email = EmailMessage(
-            '[Website GKJJ] Pesan dari {}'.format(sender_name),
+            'Pesan dari {}'.format(sender_name),
             message,
-            config('EMAIL_HOST_USER'),
+            'gkjjakarta.org <{}>'.format(config('EMAIL_HOST_USER')),
             config('RECIPIENT', cast=Csv()),
             reply_to=[sender_email, ],
         )
