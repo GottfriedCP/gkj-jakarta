@@ -44,7 +44,7 @@ def contact_us(request):
         sender_name = request.POST.get('name')
         sender_email = request.POST.get('email')
         message = request.POST.get('message')
-        message = 'Nama: {}\nEmail ini dikirim menggunakan robot, mohon membalasnya di alamat {}.\n\n\n{}'.format(sender_name, sender_email, message)
+        message = 'Pesan ini dikirim oleh {} ({}).\n\n\n{}'.format(sender_name, sender_email, message)
         
         # Compose email
         email = EmailMessage(
