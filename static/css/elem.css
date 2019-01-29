@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.text-justified {
+    text-align: justify;
+}
+
 .uppercased {
     text-transform: uppercase;
 }
