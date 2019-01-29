@@ -29,13 +29,13 @@
 <section id="komisi-dan-bebadan" class="main-section">
     <div class="container">
         <h3 class="text-centered letter-spaced uppercased mb-3">Bidang-bidang GKJ Jakarta</h3>
-        <p class="text-centered my-3"><em>Dalam menjalankan fungsi gereja yaitu pemeliharaan iman keselamatan dan pemberitaan Injil, GKJ Jakarta memiliki empat bidang utama</em></p>
+        <p class="text-centered grey my-3"><em>Dalam menjalankan fungsi gereja yaitu pemeliharaan iman keselamatan dan pemberitaan Injil, GKJ Jakarta memiliki empat bidang utama</em></p>
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-3">
                     <div class="card-body">
                         <h4 class="card-title text-centered uppercased">Bidang Pembinaan</h4>
-                        <p class="text-justified">Bertugas mengajar dan membina warga jemaat terkait dengan tugas dan tanggung jawab gereja.</p>
+                        <p class="text-justified grey">Bertugas mengajar dan membina warga jemaat terkait dengan tugas dan tanggung jawab gereja.</p>
                         <a href="{% url 'homepage:about' %}#bidang-1">Selengkapnya</a>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h4 class="card-title text-centered uppercased">Bidang Peribadahan</h4>
-                        <p class="text-justified">Memperkokoh relasi umat dengan Tuhan, mendasari kehidupan yang memberitakan Injil.</p>
+                        <p class="text-justified grey">Memperkokoh relasi umat dengan Tuhan, mendasari kehidupan yang memberitakan Injil.</p>
                         <a href="{% url 'homepage:about' %}#bidang-2">Selengkapnya</a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h4 class="card-title text-centered uppercased">Bidang Kesaksian dan Pelayanan</h4>
-                        <p class="text-justified">Implementasi dari pembinaan dan iman di tengah-tengah kehidupan bergereja dan bermasyarakat.</p>
+                        <p class="text-justified grey">Implementasi dari pembinaan dan iman di tengah-tengah kehidupan bergereja dan bermasyarakat.</p>
                         <a href="{% url 'homepage:about' %}#bidang-3">Selengkapnya</a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-centered uppercased">Bidang Organisasi, Administrasi, dan Keuangan</h4>
-                        <p class="text-justified">Suatu manajemen yang tertib dan efisien yang dibutuhkan tiga bidang sebelumnya dalam operasinya.</p>
+                        <p class="text-justified grey">Suatu manajemen yang tertib dan efisien yang dibutuhkan tiga bidang sebelumnya dalam operasinya.</p>
                     </div>
                 </div>
             </div>
@@ -103,11 +103,11 @@
             {% for art in arts %}
             <li class="article mb-4">
                 <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
-                <div class="bigger-font">{{ art.summary }}</div>
+                <div class="bigger-font grey">{{ art.summary }}</div>
                 <small>Ditulis pada <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y" }} </time></small>
             </li>
             {% empty %}
-            <li class="article">Belum ada artikel terbaru...</li>
+            <li class="article grey">Belum ada artikel terbaru...</li>
             {% endfor %}
         </ul>
     </div>

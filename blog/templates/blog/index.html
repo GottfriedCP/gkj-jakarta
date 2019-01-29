@@ -12,7 +12,7 @@
         {% for art in arts %}
             <li class="article mb-4">
                 <h2><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h2>
-                <div class="bigger-font">{{ art.summary }}</div>
+                <div class="bigger-font grey">{{ art.summary }}</div>
                 <small>Ditulis pada 
                 <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y H:i" }} </time></small>
             </li>
