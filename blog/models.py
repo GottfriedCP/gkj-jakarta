@@ -7,7 +7,7 @@ import uuid
 # Create your models here.
 class Article(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField('Judul:', max_length=500)
+    title = models.CharField('Judul:', max_length=500, unique=True)
     slug = models.SlugField(max_length=100, editable=False)
     published = models.BooleanField('Rilis artikel?', default=True)
     comment_allowed = models.BooleanField('Izinkan komentar pembaca?', default=True)
