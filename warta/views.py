@@ -6,6 +6,8 @@ from .models import Warta
 import datetime, time, os, hashlib, uuid
 
 def index(request):
+    request.session['current_page'] = None
+    
     wartas = Warta.objects.all()
     latest_warta_url = False
     try:
@@ -24,6 +26,8 @@ def create(request):
     Filename: wg20181219[hash]/WG-2018-12-19.pdf\n
     Shortname: WG-2018-12-19.pdf    
     """
+    request.session['current_page'] = None
+
     form = WartaForm()
     randuuid = str(uuid.uuid4())
     randhash = hashlib.sha1(randuuid.encode('utf-8')).hexdigest()

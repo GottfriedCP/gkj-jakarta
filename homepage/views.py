@@ -132,7 +132,7 @@ def create_announcement(request):
 
 @login_required
 def edit_announcement(request, id):
-    request.session['current_page'] = 'None'
+    request.session['current_page'] = None
     ann = get_object_or_404(Announcement, id=id)
     ann_id = ann.id
     form = AnnouncementForm(instance=ann)
