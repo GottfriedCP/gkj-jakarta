@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %}{{ ann.title }} - GKJ Jakarta{% endblock %}
+
+{% block header_bl %}
+    <!-- OG Metadata -->
+    <meta property="og:image:width" content="226">
+    <meta property="og:image:height" content="226">
+    <meta property="og:description" content="{{ ann.summary }}">
+    <meta property="og:image" content="{% static 'favicon/og-image.jpg' %}">
+    <meta property="og:title" content="{{ ann.title }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">    
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css' %}">
+{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <article>
+            <header class="my-3">
+                <h1>{{ ann.title }}</h1>
+                Ditulis pada 
+                <time datetime="{{ ann.date_created|date:'c' }}">{{ ann.date_created|date:"d M Y H:i" }} </time>
+            </header>
+            <section class="bigger-font">
+                {{ ann.content|safe }}
+            </section>
+        </article>
+        {% if request.user.is_authenticated %}
+        <section id="admin">
+            <a href="{% url 'homepage:edit_ann' id=ann.id %}" class="btn btn-sm btn-info" role="button">Edit pengumuman</a>
+        </section>
+        {% endif %}
+    </div>
+
+    {% block add_body_bl %}
+    <script>
+        /* Remove the style from summernote */
+        $(document).ready(function(){
+            $("img").removeAttr("style");
+        });
+    </script>
+    
+    <noscript>
+        Please enable JavaScript.
+    </noscript>
+    {% endblock %}
+{% endblock %}

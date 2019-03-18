@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Edit Pengumuman - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <form method="POST" action="{% url 'homepage:edit_ann' id=ann_id %}" id="form-create-article">{% csrf_token %}
+            <h3>Edit pengumuman</h3>
+            {{ form }}
+            <button type="submit" class="btn btn-block btn-primary my-3">Submit</button>
+            <a href="{% url 'homepage:edit_ann' id=ann_id %}" class="btn btn-block btn-secondary" role="button">Batal dan kembali</a>
+        </form>
+    </div>
+{% endblock %}

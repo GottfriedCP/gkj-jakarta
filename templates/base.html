@@ -65,6 +65,8 @@
                         Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'homepage:create_ann' %}">Tulis pengumuman</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'warta:create' %}">Unggah Warta Gereja</a>
                         <a class="dropdown-item" href="{% url 'warta:list' %}">Lihat semua warta</a>
                         <div class="dropdown-divider"></div>

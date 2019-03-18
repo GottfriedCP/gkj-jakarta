@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title_bl %}Tulis Pengumuman - GKJ Jakarta{% endblock %}
+
+{% block body_bl %}
+    <div class="container">
+        <form method="POST" action="{% url 'homepage:create_ann' %}" id="form-create-article">{% csrf_token %}
+            <h1>Tulis pengumuman/berita baru</h1>
+            {{ form }}
+            <button type="submit" class="btn btn-block btn-primary my-3">Submit</button>
+        </form>
+    </div>
+{% endblock %}

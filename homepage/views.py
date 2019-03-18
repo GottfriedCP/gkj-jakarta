@@ -3,15 +3,19 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
+from .forms import AnnouncementForm
+from .models import Announcement
 from blog.models import Article
-import random, requests
+import datetime, pytz, random, requests
 
 # Create your views here.
 def home(request):
     request.session['current_page'] = 'home'
     # Five latest blog articles
     arts5 = Article.objects.filter(published=True)[:5]
+    # All active announcement
+    anns = Announcement.objects.all()
     # Our daily bread
     uri = 'http://alkitab.sabda.org/api/vod.php?format=jsonp'
     try:
@@ -19,8 +23,10 @@ def home(request):
     except:
         bread = False
         print('Cannot get our daily bread.')
+
     return render(request, 'homepage/index.html', {
         'arts': arts5,
+        'anns': (ann for ann in anns if ann.date_expired >= datetime.datetime.now().replace(tzinfo=pytz.UTC)),
         'bread': bread,
     })
 
@@ -103,3 +109,39 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('homepage:home')
+
+def announcement(request, id):
+    request.session['current_page'] = 'home'
+    ann = get_object_or_404(Announcement, id=id)
+    return render(request, 'homepage/announcement.html', {
+        'ann': ann,
+    })
+
+@login_required
+def create_announcement(request):
+    request.session['current_page'] = None
+    form = AnnouncementForm()
+    if request.method == 'POST':
+        form = AnnouncementForm(request.POST)
+        if form.is_valid():
+            ann = form.save()
+            return redirect(ann)
+    return render(request, 'homepage/announcement-create.html', {
+        'form': form,
+    })
+
+@login_required
+def edit_announcement(request, id):
+    request.session['current_page'] = 'None'
+    ann = get_object_or_404(Announcement, id=id)
+    ann_id = ann.id
+    form = AnnouncementForm(instance=ann)
+    if request.method == 'POST':
+        form = AnnouncementForm(request.POST, instance=ann)
+        if form.is_valid():
+            ann = form.save()
+            return redirect(ann)
+    return render(request, 'homepage/announcement-edit.html', {
+        'ann_id': ann_id,
+        'form': form,
+    })

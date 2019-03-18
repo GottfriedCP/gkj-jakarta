@@ -96,6 +96,22 @@
         <iframe id="embed-khotbah" src="https://www.youtube.com/embed/videoseries?list=PLhA1J1i_KihOrxtmeLqZUc3Tcde7QE_ZJ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </section>
+<section id="pengumuman-terbaru" class="main-section">
+    <div class="container">
+        <h3 class="text-centered letter-spaced uppercased mb-3">Pengumuman</h3>
+        <ul class="articles">
+            {% for ann in anns %}
+            <li class="article mb-4">
+                <h3><a href="{{ ann.get_absolute_url }}">{{ ann.title }}</a></h3>
+                <div class="bigger-font grey">{{ ann.summary }}</div>
+                <small>Ditulis pada <time datetime="{{ ann.date_created|date:'c' }}">{{ ann.date_created|date:"d M Y" }} </time></small>
+            </li>
+            {% empty %}
+            <li class="article grey">Belum ada pengumuman terbaru...</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
 <section id="artikel-terbaru" class="main-section">
     <div class="container">
         <h3 class="text-centered letter-spaced uppercased mb-3">Artikel dan Renungan</h3>
