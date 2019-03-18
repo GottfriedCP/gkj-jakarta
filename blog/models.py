@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
 import uuid
 
@@ -12,7 +13,7 @@ class Article(models.Model):
     comment_allowed = models.BooleanField('Izinkan komentar pembaca?', default=True)
     summary = models.TextField('Ringkasan (opsional, sebaiknya diisi):', max_length=1000, blank=True, null=True)
     content = models.TextField('Isi artikel:')
-    date_created = models.DateTimeField(auto_now_add=True, editable=False)
+    date_created = models.DateTimeField(default=timezone.now)
     date_modified = models.DateTimeField(auto_now=True, editable=False)
     author = models.CharField('Penulis:', max_length=100, blank=True, null=True, help_text='Identitas pembuat artikel asli')
 
