@@ -103,7 +103,7 @@
             {% for ann in anns %}
             <li class="article mb-4">
                 <h3><a href="{{ ann.get_absolute_url }}">{{ ann.title }}</a></h3>
-                <div class="bigger-font grey">{{ ann.summary }}</div>
+                <div class="bigger-font grey">{{ ann.summary }} <a href="{{ ann.get_absolute_url }}">Lihat detail</a></div>
                 <small>Ditulis pada <time datetime="{{ ann.date_created|date:'c' }}">{{ ann.date_created|date:"d M Y" }} </time></small>
             </li>
             {% empty %}
@@ -119,7 +119,7 @@
             {% for art in arts %}
             <li class="article mb-4">
                 <h3><a href="{{ art.get_absolute_url }}">{{ art.title }}</a></h3>
-                <div class="bigger-font grey">{{ art.summary }}</div>
+                <div class="bigger-font grey">{{ art.summary }} <a href="{{ art.get_absolute_url }}">Baca selengkapnya</a></div>
                 <small>Ditulis pada <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y" }} </time></small>
             </li>
             {% empty %}
