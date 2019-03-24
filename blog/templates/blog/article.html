@@ -20,9 +20,10 @@
         <article>
             <header class="my-3">
                 <h1>{{ art.title }}</h1>
-                Ditulis pada 
+                <i class="fas fa-calendar"></i> 
                 <time datetime="{{ art.date_created|date:'c' }}">{{ art.date_created|date:"d M Y H:i" }} </time>
-                oleh {{ art.author }}
+                <i class="fas fa-user"></i> 
+                {{ art.author }}
             </header>
             <section class="bigger-font">
                 {{ art.content|safe }}
