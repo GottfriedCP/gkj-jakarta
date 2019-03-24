@@ -55,6 +55,9 @@
                 <li class="nav-item {% if request.session.current_page == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'homepage:about' %}">Profil</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'homepage:home' %}#pengumuman-terbaru">Pengumuman</a>
+                </li>
                 <li class="nav-item {% if request.session.current_page == 'contact-us' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'homepage:contact_us' %}">Hubungi kami</a>
                 </li>
